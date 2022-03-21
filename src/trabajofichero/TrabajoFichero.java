@@ -35,15 +35,11 @@ public class TrabajoFichero {
                     while (linea != null) {
                         int contador = linea.lastIndexOf(',');
                         contador++;
-                        System.out.println(linea.charAt(contador));
-                        linea = br.readLine();
-                        
                         if(linea.charAt(contador) == digito){
                             System.out.println(linea);
                             linea = br.readLine();
                         }
                         else{
-                            System.out.println("No se ha encontrado nada");
                             linea = br.readLine();
                         }
                     }
