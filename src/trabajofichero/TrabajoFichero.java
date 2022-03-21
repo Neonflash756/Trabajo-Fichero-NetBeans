@@ -85,10 +85,25 @@ public class TrabajoFichero {
             case "tres":
                 fr = new FileReader("Restaurants.csv");
                 br = new BufferedReader(fr);
+                System.out.println("Escriba el nombre del nuevo fichero: ");
+                String nombreFichero = sc.nextLine();
+                FileWriter fw = new FileWriter(nombreFichero, true);
+                BufferedWriter bw = new BufferedWriter(fw);
                 linea = br.readLine();
                 String [] lineaSeparada = linea.split(",");
+                System.out.println(lineaSeparada[3]);
+                
+                try {
+                    while (linea != null) {
+                        
+                    }
+                } 
+                catch (InputMismatchException e) {
+                    System.out.println("error");
+                }
                 
                 break;
+
                 
             case "cuatro":
                 System.out.println("Introduzca el fichero");
