@@ -27,7 +27,7 @@ public class TrabajoFichero {
             case "uno":
                 System.out.println("Indique el dígito");
                 String dígito = sc.nextLine();
-                int digito = Integer.parseInt(dígito);
+                char digito = dígito.charAt(0);
                 FileReader fr = new FileReader("Restaurants.csv");
                 BufferedReader br = new BufferedReader(fr);
                 String linea = br.readLine();
@@ -35,11 +35,15 @@ public class TrabajoFichero {
                     while (linea != null) {
                         int contador = linea.lastIndexOf(',');
                         contador++;
+                        System.out.println(linea.charAt(contador));
+                        linea = br.readLine();
+                        
                         if(linea.charAt(contador) == digito){
                             System.out.println(linea);
                             linea = br.readLine();
                         }
                         else{
+                            System.out.println("No se ha encontrado nada");
                             linea = br.readLine();
                         }
                     }
@@ -50,6 +54,7 @@ public class TrabajoFichero {
                 
                 
                 break;
+
 
             case "dos":
                 System.out.print("Nombre del fichero:");
