@@ -48,10 +48,8 @@ public class TrabajoFichero {
                     System.out.println("error");
                 }
                 
-                
                 break;
-
-
+                
             case "dos":
                 System.out.print("Nombre del fichero:");
                 String archivo = sc.nextLine();
@@ -83,9 +81,15 @@ public class TrabajoFichero {
                 }
                 
                 break;
+                
             case "tres":
-                System.out.println("tres");
+                fr = new FileReader("Restaurants.csv");
+                br = new BufferedReader(fr);
+                linea = br.readLine();
+                String [] lineaSeparada = linea.split(",");
+                
                 break;
+                
             case "cuatro":
                 System.out.println("Introduzca el fichero");
                 String file = sc.nextLine();
@@ -101,10 +105,6 @@ public class TrabajoFichero {
             default:
                 System.out.println("Programa finalizado");
         }
-    }
-
-    private static Reader FileReader(String restaurantcsv) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
