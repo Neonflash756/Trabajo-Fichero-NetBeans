@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class TrabajoFichero {
     
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
        
         System.out.println("Teclee uno para mostrar los datos de todos aquellos restaurantes cuyo código postal empiece por el dígito indicado.");
         System.out.println("Teclee dos para añadir datos nuevos al fichero");
@@ -24,7 +24,35 @@ public class TrabajoFichero {
                 System.out.println("uno");
                 break;
             case "dos":
-                System.out.println("dos");
+                System.out.print("Nombre del fichero:");
+                String archivo = sc.nextLine();
+
+                try (FileWriter fich = new FileWriter (archivo,true)) {
+                    System.out.print("Restaurante: ");
+                    archivo = sc.nextLine();
+                    fich.write(archivo);
+
+                    System.out.print("Dirección:");
+                    archivo = sc.nextLine();
+                    fich.write(','+archivo);
+
+                    System.out.print("Ciudad:");
+                    archivo = sc.nextLine();
+                    fich.write(','+archivo);
+
+                    System.out.print("Estado:");
+                    archivo = sc.nextLine();
+                    fich.write(','+archivo);
+                    
+                    System.out.print("Código:");
+                    archivo = sc.nextLine();
+                    fich.write(','+archivo);
+
+                    //cambio de línea
+                    fich.write("\n");
+                    fich.close();
+                }
+                
                 break;
             case "tres":
                 System.out.println("tres");
