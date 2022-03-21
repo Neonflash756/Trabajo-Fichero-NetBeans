@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.Reader;
 import java.util.Scanner;
 
 public class TrabajoFichero {
@@ -21,8 +22,13 @@ public class TrabajoFichero {
         switch(menu)
         {
             case "uno":
-                System.out.println("uno");
+                System.out.println("Indique el dígito");
+                String dígito = sc.nextLine();
+                FileReader fr = new FileReader("Restaurant.csv");
+                BufferedReader br = new BufferedReader(fr);
+                String linea = br.readLine();
                 break;
+
             case "dos":
                 System.out.print("Nombre del fichero:");
                 String archivo = sc.nextLine();
@@ -72,6 +78,10 @@ public class TrabajoFichero {
             default:
                 System.out.println("Programa finalizado");
         }
+    }
+
+    private static Reader FileReader(String restaurantcsv) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
