@@ -7,7 +7,10 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.Reader;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import jdk.nashorn.internal.objects.NativeArray;
+import jdk.nashorn.internal.objects.NativeString;
 
 public class TrabajoFichero {
     
@@ -24,9 +27,28 @@ public class TrabajoFichero {
             case "uno":
                 System.out.println("Indique el dígito");
                 String dígito = sc.nextLine();
-                FileReader fr = new FileReader("Restaurant.csv");
+                int digito = Integer.parseInt(dígito);
+                FileReader fr = new FileReader("Restaurants.csv");
                 BufferedReader br = new BufferedReader(fr);
                 String linea = br.readLine();
+                try {
+                    while (linea != null) {
+                        int contador = linea.lastIndexOf(',');
+                        contador++;
+                        if(linea.charAt(contador) == digito){
+                            System.out.println(linea);
+                            linea = br.readLine();
+                        }
+                        else{
+                            linea = br.readLine();
+                        }
+                    }
+                } 
+                catch (InputMismatchException e) {
+                    System.out.println("error");
+                }
+                
+                
                 break;
 
             case "dos":
