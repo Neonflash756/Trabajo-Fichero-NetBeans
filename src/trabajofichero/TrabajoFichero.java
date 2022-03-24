@@ -20,6 +20,7 @@ public class TrabajoFichero {
         System.out.println("Teclee dos para añadir datos nuevos al fichero");
         System.out.println("Teclee tres para crear una copia del fichero que contenga los mismos datos excepto aquellos correspondientes a los restaurantes del Estado (State) indicados.");
         System.out.println("Teclee cuatro para borrar un fichero");
+        System.out.println("Si deseea salir pulse enter");
         Scanner sc = new Scanner(System.in);
         String menu = sc.nextLine();
         switch(menu)
@@ -87,15 +88,23 @@ public class TrabajoFichero {
                 br = new BufferedReader(fr);
                 System.out.println("Escriba el nombre del nuevo fichero: ");
                 String nombreFichero = sc.nextLine();
+                System.out.println("Escriba el nombre del estado que: ");
+                String estado = sc.nextLine();
                 FileWriter fw = new FileWriter(nombreFichero, true);
                 BufferedWriter bw = new BufferedWriter(fw);
                 linea = br.readLine();
-                String [] lineaSeparada = linea.split(",");
-                System.out.println(lineaSeparada[3]);
-                
+
                 try {
                     while (linea != null) {
-                        
+                        String [] lineaSeparada = linea.split(",");
+                        System.out.println(lineaSeparada[3]);
+                        if (!(lineaSeparada[3].equals(estado)) ){
+                            bw.write(linea);
+                            linea = br.readLine();
+                        }
+                        else{
+                            linea = br.readLine();
+                        }
                     }
                 } 
                 catch (InputMismatchException e) {
