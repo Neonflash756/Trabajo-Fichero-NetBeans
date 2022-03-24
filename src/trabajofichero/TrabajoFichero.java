@@ -98,15 +98,18 @@ public class TrabajoFichero {
                 try {
                     while (linea != null) {
                         String [] lineaSeparada = linea.split(",");
-                        if (lineaSeparada[3] != estado ){
+                        if (!lineaSeparada[3].equals(estado) ){
                             System.out.println(linea);
-                            fw.write(linea);
+                            bw.write(linea);
+                            bw.write("\n");
+                            
                             linea = br.readLine();
                         }
                         else{
                             linea = br.readLine();
                         }
                     }
+                    bw.close();
                 } 
                 catch (InputMismatchException e) {
                     System.out.println("error");
