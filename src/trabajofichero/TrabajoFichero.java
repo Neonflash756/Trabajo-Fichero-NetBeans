@@ -88,7 +88,8 @@ public class TrabajoFichero {
                 br = new BufferedReader(fr);
                 System.out.println("Escriba el nombre del nuevo fichero: ");
                 String nombreFichero = sc.nextLine();
-                System.out.println("Escriba el nombre del estado que: ");
+                nombreFichero= nombreFichero +".csv";
+                System.out.println("Escriba el nombre del estado: ");
                 String estado = sc.nextLine();
                 FileWriter fw = new FileWriter(nombreFichero, true);
                 BufferedWriter bw = new BufferedWriter(fw);
@@ -97,9 +98,9 @@ public class TrabajoFichero {
                 try {
                     while (linea != null) {
                         String [] lineaSeparada = linea.split(",");
-                        System.out.println(lineaSeparada[3]);
-                        if (!(lineaSeparada[3].equals(estado)) ){
-                            bw.write(linea);
+                        if (lineaSeparada[3] != estado ){
+                            System.out.println(linea);
+                            fw.write(linea);
                             linea = br.readLine();
                         }
                         else{
